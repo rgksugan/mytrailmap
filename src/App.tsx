@@ -1,8 +1,10 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-import "./App.css";
 import HikeDetailPage from "./pages/HikeDetailPage";
 import HikeListPage from "./pages/HikeListPage";
+
+import "leaflet/dist/leaflet.css";
+import "./App.css";
 
 function App() {
   return (

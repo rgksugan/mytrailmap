@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet-gpx";
+import { useEffect } from "react";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 
 type GPXMapProps = {
   gpxUrl: string;
@@ -11,7 +11,7 @@ function GPXTrack({ gpxUrl }: GPXMapProps) {
   const map = useMap();
 
   useEffect(() => {
-    const gpx = new L.GPX(gpxUrl, {
+    new L.GPX(gpxUrl, {
       async: true,
       marker_options: {
         startIconUrl:
