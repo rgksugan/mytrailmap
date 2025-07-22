@@ -37,7 +37,7 @@ export default function GPXMap({ gpxUrl }: GPXMapProps) {
         marginTop: "2rem",
         borderRadius: "8px",
       }}
-      center={[11.1271, 78.6569]} // Fallback initial location (Tamil Nadu)
+      center={[12.9629, 77.5775]} // Fallback initial location (Bangalore)
       zoom={13}
       scrollWheelZoom={false}
     >

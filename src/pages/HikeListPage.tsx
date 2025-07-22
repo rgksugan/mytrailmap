@@ -16,7 +16,7 @@ export default function HikeListPage() {
   return (
     <Container maxW="container.lg" py={8}>
       <Heading mb={6}>My Trail Map</Heading>
-      <SimpleGrid columns={2} columnGap="4">
+      <SimpleGrid columns={2} columnGap={4} rowGap={4}>
         {hikes.map((hike) => (
           <LinkBox key={hike.id}>
             <LinkOverlay asChild>
