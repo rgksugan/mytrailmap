@@ -12,6 +12,7 @@ import {
   Tag,
   Wrap,
 } from "@chakra-ui/react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 
 export default function HikeDetailPage() {
@@ -28,6 +29,25 @@ export default function HikeDetailPage() {
 
   return (
     <Container>
+      <Helmet>
+        <title>{trail.title} | MyTrailMap</title>
+        <meta
+          name="description"
+          content={`Explore the ${trail.title} trail. A serene route through nature.`}
+        />
+
+        {/* Open Graph for social media */}
+        <meta property="og:title" content={`${trail.title} | MyTrailMap`} />
+        <meta
+          property="og:description"
+          content={`Experience ${trail.title}.`}
+        />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${trail.title} | MyTrailMap`} />
+      </Helmet>
       <Breadcrumb.Root>
         <Breadcrumb.List>
           <Breadcrumb.Item>
