@@ -1,10 +1,13 @@
-import { hikes } from "@/data/trails";
+import { trails } from "@/data/trails";
 import {
+  Box,
   Breadcrumb,
   Card,
   Container,
+  Flex,
   Heading,
   Link,
+  Separator,
   Stat,
   Tag,
   Wrap,
@@ -13,12 +16,12 @@ import { useParams } from "react-router-dom";
 
 export default function HikeDetailPage() {
   const { id } = useParams();
-  const hike = hikes.find((h) => h.id === id);
+  const trail = trails.find((h) => h.id === id);
 
-  if (!hike) {
+  if (!trail) {
     return (
       <Container py={8}>
-        <Heading>Hike Not Found</Heading>
+        <Heading>Trail Not Found</Heading>
       </Container>
     );
   }
@@ -34,33 +37,58 @@ export default function HikeDetailPage() {
           </Breadcrumb.Item>
           <Breadcrumb.Separator />
           <Breadcrumb.Item>
-            <Breadcrumb.CurrentLink>{hike.title}</Breadcrumb.CurrentLink>
+            <Breadcrumb.CurrentLink>{trail.title}</Breadcrumb.CurrentLink>
           </Breadcrumb.Item>
         </Breadcrumb.List>
       </Breadcrumb.Root>
-      <Card.Root mt="5">
+      <Card.Root mt="5" colorPalette="green">
         <Card.Header>
-          <Heading size="5xl">{hike.title}</Heading>
+          <Heading size="5xl">{trail.title}</Heading>
         </Card.Header>
         <Card.Body>
-          <Wrap>
-            <Stat.Root>
-              <Stat.Label>Distance</Stat.Label>
-              <Stat.ValueText>
-                {hike.distance}
-                <Stat.ValueUnit>km</Stat.ValueUnit>
-              </Stat.ValueText>
-            </Stat.Root>
-            <Stat.Root>
-              <Stat.Label>Elevation gain</Stat.Label>
-              <Stat.ValueText>
-                {hike.elevation}
-                <Stat.ValueUnit>metres</Stat.ValueUnit>
-              </Stat.ValueText>
-            </Stat.Root>
-          </Wrap>
+          <Flex justify="space-between" align="center" w="100%">
+            <Box>
+              <Stat.Root>
+                <Stat.Label>Distance</Stat.Label>
+                <Stat.ValueText>
+                  {trail.distance}
+                  <Stat.ValueUnit>km</Stat.ValueUnit>
+                </Stat.ValueText>
+              </Stat.Root>
+            </Box>
+            <Separator orientation="vertical" height="12" />
+            <Box>
+              <Stat.Root>
+                <Stat.Label>Time taken</Stat.Label>
+                <Stat.ValueText>
+                  {trail.movingTime}
+                  <Stat.ValueUnit>hours</Stat.ValueUnit>
+                </Stat.ValueText>
+              </Stat.Root>
+            </Box>
+            <Separator orientation="vertical" height="12" />
+            <Box>
+              <Stat.Root>
+                <Stat.Label>Elevation gain</Stat.Label>
+                <Stat.ValueText>
+                  {trail.elevationGain}
+                  <Stat.ValueUnit>metres</Stat.ValueUnit>
+                </Stat.ValueText>
+              </Stat.Root>
+            </Box>
+            <Separator orientation="vertical" height="12" />
+            <Box>
+              <Stat.Root>
+                <Stat.Label>Elevation loss</Stat.Label>
+                <Stat.ValueText>
+                  {trail.elevationLoss}
+                  <Stat.ValueUnit>metres</Stat.ValueUnit>
+                </Stat.ValueText>
+              </Stat.Root>
+            </Box>
+          </Flex>
           <Wrap pt="3">
-            {hike.tags?.map((tag) => (
+            {trail.tags?.map((tag) => (
               <Tag.Root key={tag}>
                 <Tag.Label>{tag}</Tag.Label>
               </Tag.Root>
