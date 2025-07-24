@@ -1,18 +1,17 @@
+import { TrailStats } from "@/components/TrailStats";
 import { trails } from "@/data/trails";
 import {
-  Box,
   Breadcrumb,
   Card,
   Container,
-  Flex,
   Heading,
+  HStack,
+  Icon,
   Link,
-  Separator,
-  Stat,
-  Tag,
-  Wrap,
+  Stack,
+  Text,
 } from "@chakra-ui/react";
-import { Helmet } from "react-helmet";
+import { FiMapPin } from "react-icons/fi";
 import { useParams } from "react-router-dom";
 
 export default function HikeDetailPage() {
@@ -29,25 +28,6 @@ export default function HikeDetailPage() {
 
   return (
     <Container>
-      <Helmet>
-        <title>{trail.title} | MyTrailMap</title>
-        <meta
-          name="description"
-          content={`Explore the ${trail.title} trail. A serene route through nature.`}
-        />
-
-        {/* Open Graph for social media */}
-        <meta property="og:title" content={`${trail.title} | MyTrailMap`} />
-        <meta
-          property="og:description"
-          content={`Experience ${trail.title}.`}
-        />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${trail.title} | MyTrailMap`} />
-      </Helmet>
       <Breadcrumb.Root>
         <Breadcrumb.List>
           <Breadcrumb.Item>
@@ -61,61 +41,23 @@ export default function HikeDetailPage() {
           </Breadcrumb.Item>
         </Breadcrumb.List>
       </Breadcrumb.Root>
+      <Stack>
+        <Heading size="5xl">{trail.title}</Heading>
+        {(trail.district || trail.state || trail.country) && (
+          <HStack>
+            <Icon as={FiMapPin} />
+            <Text fontSize="sm">
+              {[trail.district, trail.state, trail.country]
+                .filter(Boolean)
+                .join(", ")}
+            </Text>
+          </HStack>
+        )}
+      </Stack>
       <Card.Root mt="5" colorPalette="green">
-        <Card.Header>
-          <Heading size="5xl">{trail.title}</Heading>
-        </Card.Header>
         <Card.Body>
-          <Flex justify="space-between" align="center" w="100%">
-            <Box>
-              <Stat.Root>
-                <Stat.Label>Distance</Stat.Label>
-                <Stat.ValueText>
-                  {trail.distance}
-                  <Stat.ValueUnit>km</Stat.ValueUnit>
-                </Stat.ValueText>
-              </Stat.Root>
-            </Box>
-            <Separator orientation="vertical" height="12" />
-            <Box>
-              <Stat.Root>
-                <Stat.Label>Time taken</Stat.Label>
-                <Stat.ValueText>
-                  {trail.movingTime}
-                  <Stat.ValueUnit>hours</Stat.ValueUnit>
-                </Stat.ValueText>
-              </Stat.Root>
-            </Box>
-            <Separator orientation="vertical" height="12" />
-            <Box>
-              <Stat.Root>
-                <Stat.Label>Elevation gain</Stat.Label>
-                <Stat.ValueText>
-                  {trail.elevationGain}
-                  <Stat.ValueUnit>metres</Stat.ValueUnit>
-                </Stat.ValueText>
-              </Stat.Root>
-            </Box>
-            <Separator orientation="vertical" height="12" />
-            <Box>
-              <Stat.Root>
-                <Stat.Label>Elevation loss</Stat.Label>
-                <Stat.ValueText>
-                  {trail.elevationLoss}
-                  <Stat.ValueUnit>metres</Stat.ValueUnit>
-                </Stat.ValueText>
-              </Stat.Root>
-            </Box>
-          </Flex>
-          <Wrap pt="3">
-            {trail.tags?.map((tag) => (
-              <Tag.Root key={tag}>
-                <Tag.Label>{tag}</Tag.Label>
-              </Tag.Root>
-            ))}
-          </Wrap>
+          <TrailStats trail={trail} />
         </Card.Body>
-        <Card.Footer />
       </Card.Root>
     </Container>
   );

@@ -19,6 +19,9 @@ export type Trail = {
   movingTime?: number;
   isPermitRequired: boolean;
   url?: string;
+  district?: string;
+  state?: string;
+  country?: string;
 };
 
 export const trails: Trail[] = [
@@ -34,6 +37,9 @@ export const trails: Trail[] = [
     tags: ["Temple", "Views"],
     movingTime: 1.43,
     isPermitRequired: false,
+    district: "Krishnagiri",
+    state: "Tamilnadu",
+    country: "India",
   },
   {
     id: "guthirayan",
