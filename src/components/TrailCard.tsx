@@ -1,24 +1,11 @@
 import type { Trail } from "@/data/trails";
 import { parseGpxFile } from "@/util/parseGpxFile";
 import { Box, Card, Heading, Tag, Text, VStack, Wrap } from "@chakra-ui/react";
-import { LatLngBounds } from "leaflet";
 import { useEffect, useState } from "react";
-import { MapContainer, Polyline, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, Polyline, TileLayer } from "react-leaflet";
 
+import { FitBounds } from "./FitBounds";
 import { TrailStats } from "./TrailStats";
-
-function FitBounds({ positions }: { positions: [number, number][] }) {
-  const map = useMap();
-
-  useEffect(() => {
-    if (positions.length) {
-      const bounds = new LatLngBounds(positions);
-      map.fitBounds(bounds, { padding: [20, 20] });
-    }
-  }, [positions, map]);
-
-  return null;
-}
 
 export const TrailCard = ({ trail }: { trail: Trail }) => {
   const [positions, setPositions] = useState<[number, number][]>([]);

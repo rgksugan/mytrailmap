@@ -4,6 +4,7 @@ import HikeDetailPage from "./pages/HikeDetailPage";
 import HikeListPage from "./pages/HikeListPage";
 
 import "leaflet/dist/leaflet.css";
+import "leaflet-fullscreen/dist/leaflet.fullscreen.css";
 import "./App.css";
 
 function App() {

@@ -22,6 +22,7 @@ export type Trail = {
   district?: string;
   state?: string;
   country?: string;
+  overview?: string;
 };
 
 export const trails: Trail[] = [
@@ -40,6 +41,7 @@ export const trails: Trail[] = [
     district: "Krishnagiri",
     state: "Tamilnadu",
     country: "India",
+    overview: "",
   },
   {
     id: "guthirayan",
