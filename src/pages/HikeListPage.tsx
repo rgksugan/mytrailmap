@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 export default function HikeListPage() {
   return (
-    <Container maxW="container.lg" py={{ base: 4, md: 8 }}>
+    <Container py={{ base: 4, md: 8 }}>
       <Heading mb={6} size={{ base: "xl", md: "4xl", lg: "6xl" }}>
         My Trail Map
       </Heading>
