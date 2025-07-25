@@ -11,11 +11,11 @@ import { Link } from "react-router-dom";
 
 export default function HikeListPage() {
   return (
-    <Container maxW="container.lg" py={8}>
-      <Heading mb={6} size="6xl">
+    <Container maxW="container.lg" py={{ base: 4, md: 8 }}>
+      <Heading mb={6} size={{ base: "xl", md: "4xl", lg: "6xl" }}>
         My Trail Map
       </Heading>
-      <SimpleGrid columns={2} columnGap={4} rowGap={4}>
+      <SimpleGrid columns={{ base: 1, sm: 1, md: 2 }} columnGap={4} rowGap={4}>
         {trails.map((trail) => (
           <LinkBox key={trail.id}>
             <LinkOverlay asChild>
