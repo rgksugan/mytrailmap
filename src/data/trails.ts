@@ -44,7 +44,7 @@ export const trails: Trail[] = [
   {
     id: "ratnagiri",
     title: "Ratnagiri betta Fort",
-    distance: 4.43,
+    distance: 1.35,
     elevationGain: 58,
     elevationLoss: 42,
     routeType: "Out and back",
