@@ -1,4 +1,6 @@
 import { FitBounds } from "@/components/FitBounds";
+import { TagCloud } from "@/components/TagCloud";
+import { TrailCard } from "@/components/TrailCard";
 import { TrailStats } from "@/components/TrailStats";
 import { trails } from "@/data/trails";
 import { parseGpxFile } from "@/util/parseGpxFile";
@@ -14,10 +16,13 @@ import {
   HStack,
   Icon,
   Link,
+  LinkBox,
+  LinkOverlay,
+  SimpleGrid,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FiMapPin } from "react-icons/fi";
 import {
   LayersControl,
@@ -25,12 +30,22 @@ import {
   Polyline,
   TileLayer,
 } from "react-leaflet";
-import { useParams } from "react-router-dom";
+import { Link as RouterLink, useParams } from "react-router-dom";
 
 export default function HikeDetailPage() {
   const [positions, setPositions] = useState<[number, number][]>([]);
   const { id } = useParams();
   const trail = trails.find((h) => h.id === id);
+
+  const relatedTrails = useMemo(() => {
+    if (!trail) return [];
+    return trails
+      .filter(
+        (t) =>
+          t.id !== trail.id && t.tags.some((tag) => trail.tags.includes(tag))
+      )
+      .slice(0, 4);
+  }, [trail]);
 
   useEffect(() => {
     async function loadGpx() {
@@ -53,7 +68,7 @@ export default function HikeDetailPage() {
   }
 
   return (
-    <Container>
+    <Container pb={8}>
       <Bleed>
         <Box w="100%" h="500px">
           <MapContainer
@@ -127,11 +142,43 @@ export default function HikeDetailPage() {
           <TrailStats trail={trail} />
         </Card.Body>
       </Card.Root>
-      <Card.Root mt="5" colorPalette="green">
+      {trail.overview && (
+        <Card.Root mt="5" colorPalette="green">
+          <Card.Body>
+            <Text>{trail.overview}</Text>
+          </Card.Body>
+        </Card.Root>
+      )}
+
+      <Card.Root mt="5" colorPalette="teal">
+        <Card.Header>
+          <Heading size="lg">Explore by Tags</Heading>
+        </Card.Header>
         <Card.Body>
-          <Text>{trail.overview}</Text>
+          <TagCloud />
         </Card.Body>
       </Card.Root>
+
+      {relatedTrails.length > 0 && (
+        <Card.Root mt="5" colorPalette="blue" w="100%">
+          <Card.Header>
+            <Heading size="lg">Related Trails</Heading>
+          </Card.Header>
+          <Card.Body>
+            <SimpleGrid columns={{ base: 1, md: 2 }} columnGap={4} rowGap={4}>
+              {relatedTrails.map((relatedTrail) => (
+                <LinkBox key={relatedTrail.id}>
+                  <LinkOverlay asChild>
+                    <RouterLink to={`/hike/${relatedTrail.id}`}>
+                      <TrailCard trail={relatedTrail} />
+                    </RouterLink>
+                  </LinkOverlay>
+                </LinkBox>
+              ))}
+            </SimpleGrid>
+          </Card.Body>
+        </Card.Root>
+      )}
     </Container>
   );
 }
