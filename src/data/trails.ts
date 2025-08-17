@@ -39,8 +39,8 @@ export const trails: Trail[] = [
     district: "Krishnagiri",
     state: "Tamilnadu",
     country: "India",
-    overview:
-      "Biligundulu, set in the picturesque Krishnagiri district, eagerly awaits exploration as a charming and remote village. The trail starts at Biligundulu on the banks of the Cauvery and follows the river course till the endpoint at Rasimanal forest camp shed. A leisurely stroll, admiring the beauty of the gorgeous river and riverine ecosystem, would be a sought-after activity for nature lovers and tourists alike.",
+    description:
+      "This scenic trail follows the Cauvery River, starting at Biligundulu and ending at Rasimanal forest camp—a serene walk ideal for nature lovers.",
     url: "https://www.trektamilnadu.com/trail/biligundulu-rasimanal",
   },
   {
@@ -60,7 +60,7 @@ export const trails: Trail[] = [
   },
   {
     id: "ratnagiri",
-    title: "Ratnagiri betta Fort",
+    title: "Ratnagiri",
     distance: 1.35,
     elevationGain: 58,
     elevationLoss: 42,
@@ -75,7 +75,7 @@ export const trails: Trail[] = [
   },
   {
     id: "rayakottai",
-    title: "Rayakottai Fort",
+    title: "Rayakottai",
     distance: 4.43,
     elevationGain: 158,
     elevationLoss: 158,
@@ -90,7 +90,7 @@ export const trails: Trail[] = [
   },
   {
     id: "virbhadradurgam",
-    title: "Virbhadradurgam Fort",
+    title: "Virbhadradurgam",
     distance: 3.37,
     elevationGain: 183,
     elevationLoss: 186,
@@ -262,7 +262,7 @@ export const trails: Trail[] = [
     elevationLoss: 191,
     movingTime: 2.43,
     routeType: "Out and back",
-    tags: ["Rivers", "Forests", "Wildlife", "Temple"],
+    tags: ["River", "Forests", "Wildlife", "Temple"],
     isPermitRequired: true,
   },
   {
@@ -330,7 +330,7 @@ export const trails: Trail[] = [
     elevationLoss: 237,
     movingTime: 1.34,
     routeType: "Out and back",
-    tags: ["Views", "Historic sites", "Temple", "Navadurga"],
+    tags: ["Views", "Historic sites", "Temple", "Navadurga", "Fort"],
     isPermitRequired: false,
     state: "Karnataka",
     country: "India",
