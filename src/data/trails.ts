@@ -120,7 +120,7 @@ export const trails: Trail[] = [
   },
   {
     id: "thoranamalai",
-    title: "Thoranamalai Murugan Kovil",
+    title: "Thoranamalai",
     distance: 2.7,
     elevationGain: 164,
     elevationLoss: 195,
