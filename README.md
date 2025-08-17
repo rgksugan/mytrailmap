@@ -1,69 +1,94 @@
-# React + TypeScript + Vite
+# MyTrailMap 🥾
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based interactive trail mapping application showcasing hiking trails across Tamil Nadu and Karnataka, India. Explore detailed trail information, view GPX tracks on interactive maps, and discover your next adventure.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**[View MyTrailMap](https://gsuga.github.io/mytrailmap/)**
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Interactive Trail Maps**: View detailed GPX tracks on Leaflet maps
+- **Trail Database**: 23+ curated hiking trails with comprehensive details
+- **Trail Information**: Distance, elevation gain/loss, duration, and difficulty
+- **Filtering & Search**: Find trails by tags (Temple, Views, Wildlife, etc.)
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Dark/Light Mode**: Toggle between themes for comfortable viewing
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🗺️ Trail Coverage
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Tamil Nadu**: Krishnagiri, Madurai, Tenkasi, Kanyakumari districts
+- **Karnataka**: Select trails including Hutridurga
+- **Trail Types**: Temple visits, forest treks, wildlife spotting, historic sites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Tech Stack
+
+- **Frontend**: React 19, TypeScript
+- **Mapping**: Leaflet, React-Leaflet, Leaflet-GPX
+- **UI Framework**: Chakra UI
+- **Routing**: React Router DOM
+- **Build Tool**: Vite
+- **Deployment**: GitHub Pages
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 20+
+- npm
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/gsuga/mytrailmap.git
+cd mytrailmap
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # Chakra UI components
+│   ├── GPXMap.tsx      # Interactive map component
+│   ├── TrailCard.tsx   # Trail information cards
+│   └── TrailStats.tsx  # Trail statistics display
+├── data/               # Trail data and types
+├── pages/              # Route components
+├── types/              # TypeScript definitions
+└── util/               # Utility functions
+public/
+└── data/               # GPX trail files
+```
+
+## 🎯 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run deploy` - Deploy to GitHub Pages
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+- Built with ❤️ for the hiking community
