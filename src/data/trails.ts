@@ -27,6 +27,23 @@ export type Trail = {
 
 export const trails: Trail[] = [
   {
+    id: "biligundulu",
+    title: "Biligundulu - Rasimanal",
+    distance: 15.72,
+    elevationGain: 104,
+    elevationLoss: 97,
+    routeType: "Out and back",
+    tags: ["River", "Cauvery", "Wildlife", "TrekTamilNadu"],
+    movingTime: 4.14,
+    isPermitRequired: true,
+    district: "Krishnagiri",
+    state: "Tamilnadu",
+    country: "India",
+    overview:
+      "Biligundulu, set in the picturesque Krishnagiri district, eagerly awaits exploration as a charming and remote village. The trail starts at Biligundulu on the banks of the Cauvery and follows the river course till the endpoint at Rasimanal forest camp shed. A leisurely stroll, admiring the beauty of the gorgeous river and riverine ecosystem, would be a sought-after activity for nature lovers and tourists alike.",
+    url: "https://www.trektamilnadu.com/trail/biligundulu-rasimanal",
+  },
+  {
     id: "dhanurgiri",
     title: "Dhanurgiri Kshetra Bevanatham",
     distance: 1.33,
@@ -145,6 +162,8 @@ export const trails: Trail[] = [
     tags: ["Forests", "Wildlife", "Views", "TrekTamilNadu"],
     movingTime: 2.41,
     isPermitRequired: true,
+    overview:
+      "The trek to Guthirayan Peak is a thrilling and adrenaline-fueled challenge. Situated in  Krishnagiri district, the trek offers a journey through diverse ecosystems and wild habitats and ends with a high mountain viewpoint offering a panoramic view. Guthirayan peak is the highest point of the Melagiri Hills.  The dense tree cover and moderate climate experienced throughout the season ease the toughness of the trek. You'll encounter birds and butterflies that are unique to the region.",
     url: "https://www.trektamilnadu.com/trail/guthirayan-peak",
   },
   {
@@ -159,6 +178,8 @@ export const trails: Trail[] = [
     tags: ["Forests", "Wildlife", "Views", "TrekTamilNadu"],
     movingTime: 4.11,
     isPermitRequired: true,
+    overview:
+      "Kalikesam- Maramalai is located in the Kanyakumari district of Tamil Nadu. It is a perfect pick to glimpse the region's rich biodiversity. The trail encompasses a mosaic of habitats, providing a haven for diverse wildlife. The hike/ safari begins from the plantation area and passes through the lush interiors to reach the ancient clove plantation. Take a break with hot and local savories served at an old building on the plantation premises. One of the highlights is spotting the majestic Travancore Tortoise. Keep your senses attuned to the birds' distinctive calls and the animals' rustling.",
     url: "https://www.trektamilnadu.com/trail/kalikesam-maramalai",
   },
   {
@@ -173,6 +194,8 @@ export const trails: Trail[] = [
     tags: ["Forests", "Wildlife", "Views", "TrekTamilNadu"],
     movingTime: 5.04,
     isPermitRequired: true,
+    overview:
+      "The Injikadavu trail, situated in the heart of Kanyakumari wildlife sanctuary, is an escape into the wilderness. The trek takes you through diverse forest types from deciduous forests to moist evergreen forests to grassland expanses, connecting a chord with nature. One would not imagine such incredible forest wealth in the Kanyakumari district.",
     url: "https://www.trektamilnadu.com/trail/injikadavu",
   },
   {
